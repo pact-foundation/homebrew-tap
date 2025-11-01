@@ -1,8 +1,12 @@
 name: Update version
-
 on:
   repository_dispatch:
     types:
+      - pact-cli-released
+      - pact-verifier-cli-released
+      - pact-stub-cli-released
+      - pact-plugin-cli-released
+      - pact-mock-cli-released
       - pact-standalone-released
 
 jobs:
@@ -20,9 +24,27 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config pull.ff only
 
+      - name: set script to run based on type of dispatch
+        id: set-script
+        run: |
+          if [ "${{ github.event.client_payload.type }}" = "pact-cli-released" ]; then
+            echo "SCRIPT=scripts/update_tap_version_pact_cli.sh" >> $GITHUB_ENV
+          elif [ "${{ github.event.client_payload.type }}" = "pact-verifier-cli-released" ]; then
+            echo "SCRIPT=scripts/update_tap_version_verifier_cli.sh" >> $GITHUB_ENV
+          elif [ "${{ github.event.client_payload.type }}" = "pact-stub-cli-released" ]; then
+            echo "SCRIPT=scripts/update_tap_version_stub_cli.sh" >> $GITHUB_ENV
+          elif [ "${{ github.event.client_payload.type }}" = "pact-plugin-cli-released" ]; then
+            echo "SCRIPT=scripts/update_tap_version_plugin_cli.sh" >> $GITHUB_ENV
+          elif [ "${{ github.event.client_payload.type }}" = "pact-standalone-released" ]; then
+            echo "SCRIPT=scripts/update_legacy_tap_version.sh" >> $GITHUB_ENV
+          else
+            echo "Unknown type: ${{ github.event.client_payload.type }}"
+            exit 1
+          fi
+
       - name: Run update script
         run: |
-          ./scripts/update_tap_version.sh ${{ github.event.client_payload.version }}
+          ./$SCRIPT ${{ github.event.client_payload.version }}
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           CREATE_PR: true
