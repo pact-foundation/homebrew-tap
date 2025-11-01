@@ -3,7 +3,7 @@ class PactLegacy < Formula
   homepage "https://github.com/pact-foundation/pact-standalone"
   version "2.5.6"
   license "MIT"
-  deprecate! date: "2027-01-01", because: :reason, replacement_formula: "pact-foundation/pact-standalone/pact"
+  deprecate! date: "2027-01-01", because: :reason, replacement_formula: "pact-foundation/tap/pact"
 
   on_macos do
     on_intel do

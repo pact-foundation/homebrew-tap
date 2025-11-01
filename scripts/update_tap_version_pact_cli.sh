@@ -369,7 +369,7 @@ display_usage() {
 }
 
 if [[ $# -eq 0 ]] ; then
-    echo "🚨 Please supply the pact-standalone version to upgrade to"
+    echo "🚨 Please supply the pact cli version to upgrade to"
     display_usage
     exit 1
 elif [[ $1 == "--help" ||  $1 == "-h" ]] ; then

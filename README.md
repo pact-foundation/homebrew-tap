@@ -1,17 +1,17 @@
-# homebrew-pact-standalone
+# Pact homebrew-tap
 
 The Pact Standalone public homebrew tap for MacOS / Linux homebrew formulae.
 
-The easier way to install the [`pact-cli`](https://github.com/pact-foundation/pact-cli) & legacy [`pact-standalone`](https://github.com/pact-foundation/pact-standalone) bundle of tools on your macOS/Linux machine using Homebrew.
+The easier way to install the Pact CLI tools on your MacOS/Linux machine using Homebrew.
 
 ## Installation
 
-    brew tap pact-foundation/pact-standalone
+    brew tap pact-foundation/tap
     brew install pact
 
 or in a single line
 
-    brew install pact-foundation/pact-standalone/pact
+    brew install pact-foundation/tap/pact
 
 ##  Supported Platforms
 
@@ -49,37 +49,44 @@ or in a single line
 
 ### Pact Mock Server Cli
 
-    brew install pact-foundation/pact-standalone/pact-mock-server
+    brew install pact-foundation/tap/pact-mock-server
 
 ### Pact Stub Server Cli
 
-    brew install pact-foundation/pact-standalone/pact-stub-server
+    brew install pact-foundation/tap/pact-stub-server
 
 ### Pact Verifier Cli
 
-    brew install pact-foundation/pact-standalone/pact-verifier
+    brew install pact-foundation/tap/pact-verifier
 
 ### Pact Plugin Cli
 
-    brew install pact-foundation/pact-standalone/pact-plugin
+    brew install pact-foundation/tap/pact-plugin
 
 ### Pact Broker Client
 
-    brew install pact-foundation/pact-standalone/pact-broker-client
+    brew install pact-foundation/tap/pact-broker-client
 
 ### Pact Ruby Standalone (Legacy)
 
 The following command can be used to install the pact ruby standalone bundle which is now in maintainence mode.
 
+    brew install pact-foundation/tap/pact-legacy
+
+Older install commands are supported, due to repository rename redirects, and Homebrew Aliases.
+
+    brew install pact-foundation/pact-ruby-standalone/pact-standalone
+    brew install pact-foundation/homebrew-pact-ruby-standalone/pact-standalone
     brew install pact-foundation/pact-standalone/pact-standalone
+    brew install pact-foundation/homebrew-pact-standalone/pact-standalone
 
 ### Included legacy tools
 
 ```
-├── pact-broker-legacy
-├── pactflow-legacy
-├── pact-message-legacy
-├── pact-mock-service-legacy
-├── pact-provider-verifier-legacy
-└── pact-stub-service-legacy
+├── pact-broker
+├── pactflow
+├── pact-message
+├── pact-mock-service
+├── pact-provider-verifier
+└── pact-stub-service
 ```
