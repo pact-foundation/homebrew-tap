@@ -37,7 +37,7 @@ jobs:
         run: |
           brew tap pact-foundation/pact-standalone
           cd $(brew --prefix)/Homebrew/Library/Taps/pact-foundation/homebrew-pact-standalone/
-          git checkout ${{ github.sha }}
+          git checkout ${{ github.event.pull_request.head.sha || github.sha }}
           brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
 
       - name: Install tap
@@ -45,7 +45,7 @@ jobs:
         run: |
           brew tap pact-foundation/pact-standalone
           cd $(brew --prefix)/Library/Taps/pact-foundation/homebrew-pact-standalone/
-          git checkout ${{ github.sha }}
+          git checkout ${{ github.event.pull_request.head.sha || github.sha }}
           brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
 
       - name: Brew test tap
