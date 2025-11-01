@@ -3,7 +3,7 @@ set -e
 
 homepage="https://github.com/pact-foundation/pact-standalone"
 version=$1
-FORMULAE_FILE="pact-standalone.rb"
+FORMULAE_FILE="pact-legacy.rb"
 
 write_homebrew_formulae() {
     if [ ! -f "$FORMULAE_FILE" ] ; then
@@ -13,10 +13,13 @@ write_homebrew_formulae() {
     fi
 
      exec 3<> $FORMULAE_FILE
-        echo "class PactStandalone < Formula" >&3
+        echo "class PactLegacy < Formula" >&3
         echo "  desc \"Standalone pact CLI executable using the Ruby Pact impl and Traveling Ruby\"" >&3
         echo "  homepage \"$homepage\"" >&3
         echo "  version \"$version\"" >&3
+        echo "  license \"MIT\"" >&3
+        echo "  deprecate! date: \"2027-01-01\", because: :reason, replacement_formula: \"pact-foundation/tap/pact\"" >&3
+        echo "" >&3
         echo "  on_macos do" >&3
         echo "    on_intel do" >&3
         echo "      url \"$homepage/releases/download/v$version/pact-$version-osx-x86_64.tar.gz\"" >&3
@@ -39,17 +42,15 @@ write_homebrew_formulae() {
         echo "  end" >&3
         echo "" >&3
         echo "  def install" >&3
-        echo "    # pact-standalone" >&3
-        echo "    bin.install Dir[\"bin/*\"]" >&3
+        echo "    bin.install Dir[\"bin/*\"].reject { |f|" >&3
+        echo "      f.end_with?(\"/pact\", \"/pact-stub-server\", \"/pact_mock_server_cli\", \"/pact-plugin-cli\", \"/pact_verifier_cli\")" >&3
+        echo "    }.to_a" >&3
         echo "    lib.install Dir[\"lib/*\"]" >&3
-        echo "    puts \"# Run 'pact-mock-service --help' (see $homepage/releases/)\"" >&3
         echo "  end" >&3
         echo "" >&3
         echo "  test do" >&3
-        echo "    system \"#{bin}/pact\", \"help\"" >&3
         echo "    system \"#{bin}/pact-broker\", \"help\"" >&3
         echo "    system \"#{bin}/pact-message\", \"help\"" >&3
-        echo "    system \"#{bin}/pact-plugin-cli\", \"help\"" >&3
         echo "    system \"#{bin}/pact-mock-service\", \"help\"" >&3
         echo "    system \"#{bin}/pact-provider-verifier\", \"help\"" >&3
         echo "    system \"#{bin}/pact-stub-service\", \"help\"" >&3

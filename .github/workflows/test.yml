@@ -13,7 +13,12 @@ jobs:
     name: test
     strategy:
       matrix:
-        os: [macos-13, macos-14,ubuntu-latest]
+        os: [
+          macos-15, 
+          macos-15-intel,
+          ubuntu-latest, 
+          ubuntu-22.04-arm
+        ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
 
@@ -28,36 +33,25 @@ jobs:
         if: ${{ runner.os == 'Linux' }}
 
       - name: Install tap
-        if: matrix.os != 'macos-14'
+        if: matrix.os != 'macos-15'
         run: |
-          brew tap pact-foundation/pact-standalone
-          cd $(brew --prefix)/Homebrew/Library/Taps/pact-foundation/homebrew-pact-standalone/
-          git checkout ${{ github.sha }}
-          brew install --verbose --debug pact-standalone
+          brew tap pact-foundation/tap
+          cd $(brew --prefix)/Homebrew/Library/Taps/pact-foundation/homebrew-tap/
+          git checkout ${{ github.event.pull_request.head.sha || github.sha }}
+          brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
+
       - name: Install tap
-        if: matrix.os == 'macos-14'
+        if: matrix.os == 'macos-15'
         run: |
-          brew tap pact-foundation/pact-standalone
-          cd $(brew --prefix)/Library/Taps/pact-foundation/homebrew-pact-standalone/
-          git checkout ${{ github.sha }}
-          brew install --verbose --debug pact-standalone
+          brew tap pact-foundation/tap
+          cd $(brew --prefix)/Library/Taps/pact-foundation/homebrew-tap/
+          git checkout ${{ github.event.pull_request.head.sha || github.sha }}
+          brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
 
       - name: Brew test tap
         run: |
-          brew test pact-standalone
-
-      - name: Test tap
-        run: |
-          pact
-          pact-broker --help
-          pact-message --help
-          pact-mock-service --help
-          pact-plugin-cli --help
-          pact-provider-verifier --help
-          pact-stub-service --help
-          pactflow --help
-
+          brew test pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-legacy pact-broker-client --verbose --debug
 
       - name: Audit tap
         run: |
-          brew audit --strict --online pact-standalone
+          brew audit --strict --online pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
