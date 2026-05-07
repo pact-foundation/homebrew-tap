@@ -1,28 +1,28 @@
 class PactVerifier < Formula
   desc "Standalone Pact Verifier CLI executable using the Rust Pact impl"
   homepage "https://github.com/pact-foundation/pact-reference"
-  version "1.3.0"
+  version "1.3.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.0/pact-verifier-macos-aarch64.gz"
-      sha256 "af9a67b88a865df005ba3c66b41d090217f85155429a0f084581fca5d3d28587"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.1/pact-verifier-macos-aarch64.gz"
+      sha256 "dcc130d74c8b5a6a01da3fa9d860a0f557b5616e07ad1a31d2a191af833b193e"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.0/pact-verifier-macos-x86_64.gz"
-      sha256 "5aa75c898cc2efd31bb84a41ff5430a0ff71566f5113159b1c2d3117949d11b5"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.1/pact-verifier-macos-x86_64.gz"
+      sha256 "fa70d923a7fa1f82f7cb52b61a1a60446e5e934710e805636031073c0876853f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.0/pact-verifier-linux-aarch64.gz"
-      sha256 "f15a524147221668f567dca99e5b436a828d4cb2b6edfbed8e200ecacc45c7e3"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.1/pact-verifier-linux-aarch64.gz"
+      sha256 "9939d34ed2e07873e805b2e627bcd10bafa8abd22c4895980ba668c58a5602f6"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.0/pact-verifier-linux-x86_64.gz"
-      sha256 "884aee8bd1096a8723019c7284aa0e2e5f704852c443a3ba0ee2ce7319431100"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.1/pact-verifier-linux-x86_64.gz"
+      sha256 "08bae33070117a7278a7c0d6cbfed821b6deda7321a303759ad64d1634e0ae57"
     end
   end
 
