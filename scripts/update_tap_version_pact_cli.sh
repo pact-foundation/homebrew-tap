@@ -435,15 +435,15 @@ done
     then
         echo "🎉 Done!"
     else
-        git checkout -b version/v$version
+        git checkout -b $APP_NAME/version/v$version
         git add $FORMULAE_FILE
-        git commit -m "chore(release): Update version to v$version"
-        git push --set-upstream origin version/v$version
+        git commit -m "chore(release): Update $APP_NAME version to v$version"
+        git push --set-upstream origin $APP_NAME/version/v$version
 
         echo "👏  Go and open that PR now:"
-        echo "🔗  $homepage/compare/master...version/v$version"
+        echo "🔗  $homepage/compare/master...$APP_NAME/version/v$version"
 
-        gh pr create --title "chore(release): Update version to v${version}" --fill
+        gh pr create --title "chore(release): Update $APP_NAME version to v${version}" --fill
         echo "🎉 Done!"
     fi
 
