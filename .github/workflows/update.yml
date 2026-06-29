@@ -4,6 +4,7 @@ on:
     types:
       - pact-cli-released
       - pact-verifier-cli-released
+      - pact-broker-cli-released
       - pact-stub-cli-released
       - pact-plugin-cli-released
       - pact-mock-cli-released
@@ -17,6 +18,7 @@ on:
         options:
           - pact-cli-released
           - pact-verifier-cli-released
+          - pact-broker-cli-released
           - pact-stub-cli-released
           - pact-plugin-cli-released
           - pact-mock-cli-released
@@ -50,6 +52,9 @@ jobs:
           case "$TYPE" in
             pact-cli-released)
               echo "SCRIPT=scripts/update_tap_version_pact_cli.sh" >> $GITHUB_ENV
+              ;;
+            pact-broker-cli-released)
+              echo "SCRIPT=scripts/update_tap_version_pact_broker_cli.sh" >> $GITHUB_ENV
               ;;
             pact-verifier-cli-released)
               echo "SCRIPT=scripts/update_tap_version_verifier_cli.sh" >> $GITHUB_ENV
