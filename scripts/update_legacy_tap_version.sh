@@ -22,12 +22,12 @@ write_homebrew_formulae() {
         echo "" >&3
         echo "  on_macos do" >&3
         echo "    on_intel do" >&3
-        echo "      url \"$homepage/releases/download/v$version/pact-$version-osx-x86_64.tar.gz\"" >&3
-        echo "      sha256 \"${sha_osx_x86_64}\"" >&3
+        echo "      url \"$homepage/releases/download/v$version/pact-$version-macos-x86_64.tar.gz\"" >&3
+        echo "      sha256 \"${sha_macos_x86_64}\"" >&3
         echo "    end" >&3
         echo "    on_arm do" >&3
-        echo "      url \"$homepage/releases/download/v$version/pact-$version-osx-arm64.tar.gz\"" >&3
-        echo "      sha256 \"${sha_osx_arm64}\"" >&3
+        echo "      url \"$homepage/releases/download/v$version/pact-$version-macos-arm64.tar.gz\"" >&3
+        echo "      sha256 \"${sha_macos_arm64}\"" >&3
         echo "    end" >&3
         echo "  end" >&3
         echo "  on_linux do" >&3
@@ -79,7 +79,7 @@ elif [[ $1 == "--help" ||  $1 == "-h" ]] ; then
 else
 
 shas=()
-for platform in osx linux; do 
+for platform in macos linux; do 
     for arch in x86_64 arm64; do 
         filename=pact-$version-${platform}-${arch}
         echo "⬇️  Downloading $filename.tar.gz from $homepage"
@@ -113,12 +113,12 @@ for platform in osx linux; do
     done 
 done 
 
-    sha_osx_x86_64=${shas[0]}
-    sha_osx_arm64=${shas[1]}
+    sha_macos_x86_64=${shas[0]}
+    sha_macos_arm64=${shas[1]}
     sha_linux_x86_64=${shas[2]}
     sha_linux_arm64=${shas[3]}
-    echo "sha_osx_x86_64:" $sha_osx_x86_64
-    echo "sha_osx_arm64:" $sha_osx_arm64
+    echo "sha_macos_x86_64:" $sha_macos_x86_64
+    echo "sha_macos_arm64:" $sha_macos_arm64
     echo "sha_linux_x86_64:" $sha_linux_x86_64
     echo "sha_linux_arm64:" $sha_linux_arm64
 

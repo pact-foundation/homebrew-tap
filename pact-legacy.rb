@@ -1,28 +1,28 @@
 class PactLegacy < Formula
   desc "Standalone pact CLI executable using the Ruby Pact impl and Traveling Ruby"
   homepage "https://github.com/pact-foundation/pact-standalone"
-  version "2.6.0"
+  version "2.6.3"
   license "MIT"
   deprecate! date: "2027-01-01", because: :reason, replacement_formula: "pact-foundation/tap/pact"
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-osx-x86_64.tar.gz"
-      sha256 "ead7e6e6772d58f64417172c1d30dc263a6cd1086f601d4132a22b25ce13ab41"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.3/pact-2.6.3-macos-x86_64.tar.gz"
+      sha256 "505a98e5a48ea3f273bcc1b0e8b48acbe16e3740fa8f4a57915ce53b4dd603d1"
     end
     on_arm do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-osx-arm64.tar.gz"
-      sha256 "43030245ee921d605f5ff966b8d1a52895a9ddbad306cbdcaa7c0c56441e5569"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.3/pact-2.6.3-macos-arm64.tar.gz"
+      sha256 "3051d29607b9ddeceb816d848c25d4eb210e7e681d2a2951ce2e3df72d13deae"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-linux-x86_64.tar.gz"
-      sha256 "748f9a6036460cc4fa952adc760e95e9d2935ae95b366d72592321130dd09e63"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.3/pact-2.6.3-linux-x86_64.tar.gz"
+      sha256 "02e4489bc946a80ebe53633f692f6d75b14b58d9e9030b0008697c91b0ce0154"
     end
     on_arm do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-linux-arm64.tar.gz"
-      sha256 "5b6ed522d90d98fabc3a911712b4ec89d5787b0620a133e70e795cef5edab98e"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.3/pact-2.6.3-linux-arm64.tar.gz"
+      sha256 "d16a623406204476f36ca210a9e90f8f688ace173ce22c8da82f88a08c5f943f"
     end
   end
 
