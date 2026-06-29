@@ -1,28 +1,28 @@
 class PactLegacy < Formula
   desc "Standalone pact CLI executable using the Ruby Pact impl and Traveling Ruby"
   homepage "https://github.com/pact-foundation/pact-standalone"
-  version "2.6.0"
+  version "2.6.4"
   license "MIT"
   deprecate! date: "2027-01-01", because: :reason, replacement_formula: "pact-foundation/tap/pact"
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-osx-x86_64.tar.gz"
-      sha256 "ead7e6e6772d58f64417172c1d30dc263a6cd1086f601d4132a22b25ce13ab41"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.4/pact-2.6.4-macos-x86_64.tar.gz"
+      sha256 "fe23549d3457037dace47727b4c6c4504dc726d342c8440571a24b0291949d42"
     end
     on_arm do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-osx-arm64.tar.gz"
-      sha256 "43030245ee921d605f5ff966b8d1a52895a9ddbad306cbdcaa7c0c56441e5569"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.4/pact-2.6.4-macos-arm64.tar.gz"
+      sha256 "2d85da2bdfd3cca99fb98184e14b10fda8cf27bc12d124648d6502444e2fbc61"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-linux-x86_64.tar.gz"
-      sha256 "748f9a6036460cc4fa952adc760e95e9d2935ae95b366d72592321130dd09e63"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.4/pact-2.6.4-linux-x86_64.tar.gz"
+      sha256 "c0d77f4ad390ed8f56a1b46e9f56d4d656b0128202e95ea067a6dacc00b7cbbf"
     end
     on_arm do
-      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.0/pact-2.6.0-linux-arm64.tar.gz"
-      sha256 "5b6ed522d90d98fabc3a911712b4ec89d5787b0620a133e70e795cef5edab98e"
+      url "https://github.com/pact-foundation/pact-standalone/releases/download/v2.6.4/pact-2.6.4-linux-arm64.tar.gz"
+      sha256 "8b7541ef6a5d1742436144b945cf6f26ad5a6f82d9ab5a6ec5dfac548187b33d"
     end
   end
 
