@@ -1,28 +1,28 @@
 class PactStubServer < Formula
   desc "Standalone Pact Stub Server executable"
   homepage "https://github.com/pact-foundation/pact-stub-server"
-  version "0.7.0"
+  version "0.7.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.0/pact-stub-server-macos-aarch64.gz"
-      sha256 "89ab428f18cdbeb4fb9b08b8eb56a7a0239ca1dc87dac6dd66d21a36367b79b8"
+      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.1/pact-stub-server-macos-aarch64.gz"
+      sha256 "81eff44b5e2a0142491df100f0a399862e6e111d2728d5ba1255bc92f92fc85b"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.0/pact-stub-server-macos-x86_64.gz"
-      sha256 "0ba02f7d92f871f1adbe0e20ad6b6df126ee563deb66959c4ad5a39d7e29edc2"
+      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.1/pact-stub-server-macos-x86_64.gz"
+      sha256 "d9eb14a2ef188386b09f84a8f16bdf5de307227811e38b92b14cfbb8676fa1c8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.0/pact-stub-server-linux-aarch64.gz"
-      sha256 "a069981c42f3ae8598d7ea75338edc319a4cda1a758b5fa6613a99218c056842"
+      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.1/pact-stub-server-linux-aarch64.gz"
+      sha256 "35d6daf376a24923f6c7ad7f6802f1d132c9ec32fa9a395c3b2d27e353ffeb24"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.0/pact-stub-server-linux-x86_64.gz"
-      sha256 "6b53b4c50fc1e415560c0293b5e8483c4009a8f6f753ca1a77457a2f274ec71a"
+      url "https://github.com/pact-foundation/pact-stub-server/releases/download/v0.7.1/pact-stub-server-linux-x86_64.gz"
+      sha256 "6d7711b2c402749f50f615c16b9f09a896e0129bb9c4d10f4e321754003cc7a1"
     end
   end
 
