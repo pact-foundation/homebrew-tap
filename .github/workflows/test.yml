@@ -35,6 +35,7 @@ jobs:
       - name: Install tap
         if: matrix.os != 'macos-15'
         run: |
+          brew trust pact-foundation/tap
           brew tap pact-foundation/tap
           cd $(brew --prefix)/Homebrew/Library/Taps/pact-foundation/homebrew-tap/
           git checkout ${{ github.event.pull_request.head.sha || github.sha }}
@@ -43,6 +44,7 @@ jobs:
       - name: Install tap
         if: matrix.os == 'macos-15'
         run: |
+          brew trust pact-foundation/tap
           brew tap pact-foundation/tap
           cd $(brew --prefix)/Library/Taps/pact-foundation/homebrew-tap/
           git checkout ${{ github.event.pull_request.head.sha || github.sha }}
