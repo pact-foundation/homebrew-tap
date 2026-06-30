@@ -44,15 +44,15 @@ class Pact < Formula
       system "cargo", "install", *std_cargo_args
     elsif OS.mac?
       if Hardware::CPU.intel?
-        bin.install "pact-x86_64-macos" => "pact"
+        bin.install "pact-x86_64-apple-darwin" => "pact"
       else
-        bin.install "pact-aarch64-macos" => "pact"
+        bin.install "pact-aarch64-apple-darwin" => "pact"
       end
     elsif OS.linux?
       if Hardware::CPU.intel?
-        bin.install "pact-x86_64-linux-musl" => "pact"
+        bin.install "pact-x86_64-unknown-linux-musl" => "pact"
       else
-        bin.install "pact-aarch64-linux-musl" => "pact"
+        bin.install "pact-aarch64-unknown-linux-musl" => "pact"
       end
     end
   end
