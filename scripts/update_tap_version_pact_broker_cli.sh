@@ -5,10 +5,10 @@ homepage="https://github.com/pact-foundation/pact-broker-cli"
 version=$1
 FORMULAE_FILE="pact-broker-client.rb"
 APP_NAME="pact-broker-cli"
-    filename_macos_arm=v$version/$APP_NAME-aarch64-macos
-    filename_macos_x64=v$version/$APP_NAME-x86_64-macos
-    filename_linux_arm=v$version/$APP_NAME-aarch64-linux-musl
-    filename_linux_x64=v$version/$APP_NAME-x86_64-linux-musl
+    filename_macos_arm=v$version/$APP_NAME-aarch64-apple-darwin.tar.xz
+    filename_macos_x64=v$version/$APP_NAME-x86_64-apple-darwin.tar.xz
+    filename_linux_arm=v$version/$APP_NAME-aarch64-unknown-linux-musl.tar.xz
+    filename_linux_x64=v$version/$APP_NAME-x86_64-unknown-linux-musl.tar.xz
 
     write_homebrew_formulae() {
         if [ ! -f "$FORMULAE_FILE" ] ; then
@@ -62,18 +62,8 @@ APP_NAME="pact-broker-cli"
             echo "    if build.head?" >&3
             echo "      # Build from source if no precompiled binary is available" >&3
             echo "      system \"cargo\", \"install\", *std_cargo_args" >&3
-            echo "    elsif OS.mac?" >&3
-            echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"$APP_NAME-x86_64-macos\" => \"pact-broker-client\"" >&3
-            echo "      else" >&3
-            echo "        bin.install \"$APP_NAME-aarch64-macos\" => \"pact-broker-client\"" >&3
-            echo "      end" >&3
-            echo "    elsif OS.linux?" >&3
-            echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"$APP_NAME-x86_64-linux-musl\" => \"pact-broker-client\"" >&3
-            echo "      else" >&3
-            echo "        bin.install \"$APP_NAME-aarch64-linux-musl\" => \"pact-broker-client\"" >&3
-            echo "      end" >&3
+            echo "    else" >&3
+            echo "      bin.install \"$APP_NAME\" => \"pact-broker-client\"" >&3
             echo "    end" >&3
             echo "  end" >&3
             echo "" >&3
@@ -118,15 +108,12 @@ elif [[ $1 == "--help" ||  $1 == "-h" ]] ; then
 else
 
 archs=(x86_64 aarch64)
-platforms=(linux macos)
+platforms=(unknown-linux-musl apple-darwin)
 shas=()
 for platform in ${platforms[@]}; do 
     for arch in ${archs[@]}; do 
 
-        filename=$APP_NAME-${arch}-${platform}
-        if [ "${platform}" = "linux" ]; then
-            filename="$filename-musl"
-        fi
+        filename=$APP_NAME-${arch}-${platform}.tar.xz
 
         echo "⬇️  Downloading $version $filename from $homepage"
         echo "URL: $homepage/releases/download/v$version/$filename"
@@ -136,13 +123,13 @@ for platform in ${platforms[@]}; do
         echo "🔏 Checksum SHA256:\t ${brewshasignature[1]} for ${arch}"
 
 
-        echo "⬇️  Downloading $filename.checksum for ${arch}-${platform}"
-        curl -LO $homepage/releases/download/v$version/$filename.sha256
+        echo "⬇️  Downloading sha256.sum for ${arch}-${platform}"
+        curl -LO $homepage/releases/download/v$version/sha256.sum
 
-        expectedsha=( $(eval "cat $filename.sha256") )
+        expectedsha=( $(eval "grep '$filename' sha256.sum | awk '{print \$1}'") )
         echo "🔏 Expected SHA256:\t ${expectedsha[0]} for ${arch}-${platform}"
 
-        if [ "${shasignature[1]}" == "${expectedsha[0]}" ]; then
+        if [ "${brewshasignature[1]}" == "${expectedsha[0]}" ]; then
             echo "👮‍♀️ SHA Check: 👍 for ${arch}-${platform}"
         else
             echo "👮‍♀️ SHA Check: 🚨 - checksums do not match! for ${arch}-${platform}"
@@ -151,7 +138,7 @@ for platform in ${platforms[@]}; do
         fi
         echo "🧹 Cleaning up..."
         rm $filename
-        rm $filename.sha256
+        rm sha256.sum
         echo "🔏 Checksum SHA256:\t ${brewshasignature[1]} for ${platform}-${arch}"
         echo "🧪 Writing formulae..."
         shas+=(${brewshasignature[1]})

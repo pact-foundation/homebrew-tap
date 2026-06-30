@@ -16,25 +16,25 @@ class PactBrokerClient < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.7.0/pact-broker-cli-x86_64-macos"
-      sha256 "66703818df406cfae49abd82c686b356b41743061ab59c0dbb514604b44d6626"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.4/pact-broker-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "16a26b18617f223ff8a634f27f72a96b5bfbb32b4795bc6fbb9893c1a1be7211"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.7.0/pact-broker-cli-aarch64-macos"
-      sha256 "bdd49c7161268cff79233cc3759d9ec553b1268c4d77fd0d27609769e6b2727b"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.4/pact-broker-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "42053e484a07eb449efa750a9d3d04c3ab1de1fad20c2f42c1636f32c1b46746"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.7.0/pact-broker-cli-x86_64-linux-musl"
-      sha256 "a3e023c9cf8a9f1b80a7c0da2ba6992799207ae6a4993f030f08746a52a75a0d"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.4/pact-broker-cli-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "1c65f15cc85acb43ab15b5a1d540d7e556228fdbb053f76d032ed6278b7502a2"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.7.0/pact-broker-cli-aarch64-linux-musl"
-      sha256 "c466ab69af1ccef553e81a94c59bb286343f8e5ecb0994085770144f53704758"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.4/pact-broker-cli-aarch64-unknown-linux-musl.tar.xz"
+      sha256 "450a48c41cd61e3334ff4e82eddd89da87b7387801be13a8b194a9eb0793e8b7"
     end
   end
 
@@ -42,18 +42,8 @@ class PactBrokerClient < Formula
     if build.head?
       # Build from source if no precompiled binary is available
       system "cargo", "install", *std_cargo_args
-    elsif OS.mac?
-      if Hardware::CPU.intel?
-        bin.install "pact-broker-cli-x86_64-macos" => "pact-broker-client"
-      else
-        bin.install "pact-broker-cli-aarch64-macos" => "pact-broker-client"
-      end
-    elsif OS.linux?
-      if Hardware::CPU.intel?
-        bin.install "pact-broker-cli-x86_64-linux-musl" => "pact-broker-client"
-      else
-        bin.install "pact-broker-cli-aarch64-linux-musl" => "pact-broker-client"
-      end
+    else
+      bin.install "pact-broker-cli" => "pact-broker-client"
     end
   end
 

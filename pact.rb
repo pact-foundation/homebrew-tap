@@ -16,25 +16,25 @@ class Pact < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.0/pact-x86_64-macos"
-      sha256 "ce0ea5aff9e807842ea406880fddc44107f3d93f2a4306c58103c96b4850d3e5"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-x86_64-apple-darwin.tar.xz"
+      sha256 "5dd2b4e5a2a1c10459ce1f6f0e03ff160df332411e566647a66f08b317928c3b"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.0/pact-aarch64-macos"
-      sha256 "24c3ef7f528c1c222cae232f4eeb97a4aef5f6731cf56bffdf58497bd56b25bc"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-aarch64-apple-darwin.tar.xz"
+      sha256 "2fef3ec1b0ec400549c88accf4ddb5ccd50a6bc76e4d4c1a57c48e8dcfad40f9"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.0/pact-x86_64-linux-musl"
-      sha256 "0eccc6f5600a082912bc9c29c5348e3c347e2e05a703c20ca82e82aff3938348"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "4b310f9302bac5b6b67744905fa7abf0d98e0c5750da97525bf4f43f6c4dbc88"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.0/pact-aarch64-linux-musl"
-      sha256 "2d97b0f6b7375c3f4a9fc8e3b2899e88d82a23b3fce95cf7d4e81c9a723b87b1"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-aarch64-unknown-linux-musl.tar.xz"
+      sha256 "0e7d2a76cdb4194dad837706105b084d3dc7c0649c27e8c5bcc2e7cc7a4fb880"
     end
   end
 
@@ -42,18 +42,8 @@ class Pact < Formula
     if build.head?
       # Build from source if no precompiled binary is available
       system "cargo", "install", *std_cargo_args
-    elsif OS.mac?
-      if Hardware::CPU.intel?
-        bin.install "pact-x86_64-macos" => "pact"
-      else
-        bin.install "pact-aarch64-macos" => "pact"
-      end
-    elsif OS.linux?
-      if Hardware::CPU.intel?
-        bin.install "pact-x86_64-linux-musl" => "pact"
-      else
-        bin.install "pact-aarch64-linux-musl" => "pact"
-      end
+    else
+      bin.install "pact" => "pact"
     end
   end
 
