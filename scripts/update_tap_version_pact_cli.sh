@@ -5,10 +5,10 @@ homepage="https://github.com/pact-foundation/pact-cli"
 version=$1
 FORMULAE_FILE="pact.rb"
 APP_NAME="pact"
-    filename_macos_arm=v$version/$APP_NAME-aarch64-macos
-    filename_macos_x64=v$version/$APP_NAME-x86_64-macos
-    filename_linux_arm=v$version/$APP_NAME-aarch64-linux-musl
-    filename_linux_x64=v$version/$APP_NAME-x86_64-linux-musl
+    filename_macos_arm=v$version/$APP_NAME-aarch64-apple-darwin.tar.xz
+    filename_macos_x64=v$version/$APP_NAME-x86_64-apple-darwin.tar.xz
+    filename_linux_arm=v$version/$APP_NAME-aarch64-unknown-linux-musl.tar.xz
+    filename_linux_x64=v$version/$APP_NAME-x86_64-unknown-linux-musl.tar.xz
 
     write_homebrew_formulae() {
         if [ ! -f "$FORMULAE_FILE" ] ; then
@@ -397,10 +397,10 @@ for platform in ${platforms[@]}; do
         echo "🔏 Checksum SHA256:\t ${brewshasignature[1]} for ${arch}"
 
 
-        echo "⬇️  Downloading $filename.checksum for ${arch}-${platform}"
-        curl -LO $homepage/releases/download/v$version/$filename.sha256
+        echo "⬇️  Downloading sha256.sum for ${arch}-${platform}"
+        curl -LO $homepage/releases/download/v$version/sha256.sum
 
-        expectedsha=( $(eval "cat $filename.sha256") )
+        expectedsha=( $(eval "grep '$filename' sha256.sum | awk '{print \$1}'") )
         echo "🔏 Expected SHA256:\t ${expectedsha[0]} for ${arch}-${platform}"
 
         if [ "${shasignature[1]}" == "${expectedsha[0]}" ]; then
@@ -412,7 +412,7 @@ for platform in ${platforms[@]}; do
         fi
         echo "🧹 Cleaning up..."
         rm $filename
-        rm $filename.sha256
+        rm sha256.sum
         echo "🔏 Checksum SHA256:\t ${brewshasignature[1]} for ${platform}-${arch}"
         echo "🧪 Writing formulae..."
         shas+=(${brewshasignature[1]})
