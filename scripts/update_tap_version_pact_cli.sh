@@ -379,15 +379,12 @@ elif [[ $1 == "--help" ||  $1 == "-h" ]] ; then
 else
 
 archs=(x86_64 aarch64)
-platforms=(linux macos)
+platforms=(unknown-linux-musl apple-darwin)
 shas=()
 for platform in ${platforms[@]}; do 
     for arch in ${archs[@]}; do 
 
-        filename=$APP_NAME-${arch}-${platform}
-        if [ "${platform}" = "linux" ]; then
-            filename="$filename-musl"
-        fi
+        filename=$APP_NAME-${arch}-${platform}.tar.xz
 
         echo "⬇️  Downloading $version $filename from $homepage"
         echo "URL: $homepage/releases/download/v$version/$filename"
@@ -403,7 +400,7 @@ for platform in ${platforms[@]}; do
         expectedsha=( $(eval "grep '$filename' sha256.sum | awk '{print \$1}'") )
         echo "🔏 Expected SHA256:\t ${expectedsha[0]} for ${arch}-${platform}"
 
-        if [ "${shasignature[1]}" == "${expectedsha[0]}" ]; then
+        if [ "${brewshasignature[1]}" == "${expectedsha[0]}" ]; then
             echo "👮‍♀️ SHA Check: 👍 for ${arch}-${platform}"
         else
             echo "👮‍♀️ SHA Check: 🚨 - checksums do not match! for ${arch}-${platform}"
