@@ -64,15 +64,15 @@ APP_NAME="pact-broker-cli"
             echo "      system \"cargo\", \"install\", *std_cargo_args" >&3
             echo "    elsif OS.mac?" >&3
             echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"$APP_NAME-x86_64-apple-darwin\" => \"pact-broker-client\"" >&3
+            echo "        bin.install \"$APP_NAME\" => \"pact-broker-client\"" >&3
             echo "      else" >&3
-            echo "        bin.install \"$APP_NAME-aarch64-apple-darwin\" => \"pact-broker-client\"" >&3
+            echo "        bin.install \"$APP_NAME\" => \"pact-broker-client\"" >&3
             echo "      end" >&3
             echo "    elsif OS.linux?" >&3
             echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"$APP_NAME-x86_64-unknown-linux-musl\" => \"pact-broker-client\"" >&3
+            echo "        bin.install \"$APP_NAME\" => \"pact-broker-client\"" >&3
             echo "      else" >&3
-            echo "        bin.install \"$APP_NAME-aarch64-unknown-linux-musl\" => \"pact-broker-client\"" >&3
+            echo "        bin.install \"$APP_NAME\" => \"pact-broker-client\"" >&3
             echo "      end" >&3
             echo "    end" >&3
             echo "  end" >&3

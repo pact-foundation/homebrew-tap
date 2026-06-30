@@ -64,15 +64,15 @@ APP_NAME="pact"
             echo "      system \"cargo\", \"install\", *std_cargo_args" >&3
             echo "    elsif OS.mac?" >&3
             echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"pact-x86_64-apple-darwin\" => \"pact\"" >&3
+            echo "        bin.install \"pact\" => \"pact\"" >&3
             echo "      else" >&3
-            echo "        bin.install \"pact-aarch64-apple-darwin\" => \"pact\"" >&3
+            echo "        bin.install \"pact\" => \"pact\"" >&3
             echo "      end" >&3
             echo "    elsif OS.linux?" >&3
             echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"pact-x86_64-unknown-linux-musl\" => \"pact\"" >&3
+            echo "        bin.install \"pact\" => \"pact\"" >&3
             echo "      else" >&3
-            echo "        bin.install \"pact-aarch64-unknown-linux-musl\" => \"pact\"" >&3
+            echo "        bin.install \"pact\" => \"pact\"" >&3
             echo "      end" >&3
             echo "    end" >&3
             echo "  end" >&3

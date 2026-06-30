@@ -44,15 +44,15 @@ class PactBrokerClient < Formula
       system "cargo", "install", *std_cargo_args
     elsif OS.mac?
       if Hardware::CPU.intel?
-        bin.install "pact-broker-cli-x86_64-apple-darwin" => "pact-broker-client"
+        bin.install "pact-broker-cli" => "pact-broker-client"
       else
-        bin.install "pact-broker-cli-aarch64-apple-darwin" => "pact-broker-client"
+        bin.install "pact-broker-cli" => "pact-broker-client"
       end
     elsif OS.linux?
       if Hardware::CPU.intel?
-        bin.install "pact-broker-cli-x86_64-unknown-linux-musl" => "pact-broker-client"
+        bin.install "pact-broker-cli" => "pact-broker-client"
       else
-        bin.install "pact-broker-cli-aarch64-unknown-linux-musl" => "pact-broker-client"
+        bin.install "pact-broker-cli" => "pact-broker-client"
       end
     end
   end
