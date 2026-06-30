@@ -16,24 +16,24 @@ class Pact < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.3/pact-x86_64-macos"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-x86_64-apple-darwin.tar.xz"
       sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.3/pact-aarch64-macos"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-aarch64-apple-darwin.tar.xz"
       sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.3/pact-x86_64-linux-musl"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-x86_64-unknown-linux-musl.tar.xz"
       sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.3/pact-aarch64-linux-musl"
+      url "https://github.com/pact-foundation/pact-cli/releases/download/v0.10.4/pact-aarch64-unknown-linux-musl.tar.xz"
       sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
     end
   end
