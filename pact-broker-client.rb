@@ -42,18 +42,8 @@ class PactBrokerClient < Formula
     if build.head?
       # Build from source if no precompiled binary is available
       system "cargo", "install", *std_cargo_args
-    elsif OS.mac?
-      if Hardware::CPU.intel?
-        bin.install "pact-broker-cli" => "pact-broker-client"
-      else
-        bin.install "pact-broker-cli" => "pact-broker-client"
-      end
-    elsif OS.linux?
-      if Hardware::CPU.intel?
-        bin.install "pact-broker-cli" => "pact-broker-client"
-      else
-        bin.install "pact-broker-cli" => "pact-broker-client"
-      end
+    else
+      bin.install "pact-broker-cli" => "pact-broker-client"
     end
   end
 

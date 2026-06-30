@@ -42,18 +42,8 @@ class Pact < Formula
     if build.head?
       # Build from source if no precompiled binary is available
       system "cargo", "install", *std_cargo_args
-    elsif OS.mac?
-      if Hardware::CPU.intel?
-        bin.install "pact" => "pact"
-      else
-        bin.install "pact" => "pact"
-      end
-    elsif OS.linux?
-      if Hardware::CPU.intel?
-        bin.install "pact" => "pact"
-      else
-        bin.install "pact" => "pact"
-      end
+    else
+      bin.install "pact" => "pact"
     end
   end
 

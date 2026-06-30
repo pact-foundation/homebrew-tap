@@ -62,18 +62,8 @@ APP_NAME="pact"
             echo "    if build.head?" >&3
             echo "      # Build from source if no precompiled binary is available" >&3
             echo "      system \"cargo\", \"install\", *std_cargo_args" >&3
-            echo "    elsif OS.mac?" >&3
-            echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"pact\" => \"pact\"" >&3
-            echo "      else" >&3
-            echo "        bin.install \"pact\" => \"pact\"" >&3
-            echo "      end" >&3
-            echo "    elsif OS.linux?" >&3
-            echo "      if Hardware::CPU.intel?" >&3
-            echo "        bin.install \"pact\" => \"pact\"" >&3
-            echo "      else" >&3
-            echo "        bin.install \"pact\" => \"pact\"" >&3
-            echo "      end" >&3
+            echo "    else" >&3
+            echo "      bin.install \"pact\" => \"pact\"" >&3
             echo "    end" >&3
             echo "  end" >&3
             echo "" >&3
