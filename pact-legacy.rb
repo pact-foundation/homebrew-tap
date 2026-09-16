@@ -1,7 +1,6 @@
 class PactLegacy < Formula
   desc "Standalone pact CLI executable using the Ruby Pact impl and Traveling Ruby"
   homepage "https://github.com/pact-foundation/pact-standalone"
-  version "2.6.4"
   license "MIT"
   deprecate! date: "2027-01-01", because: :reason, replacement_formula: "pact-foundation/tap/pact"
 
