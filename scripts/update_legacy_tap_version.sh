@@ -16,7 +16,6 @@ write_homebrew_formulae() {
         echo "class PactLegacy < Formula" >&3
         echo "  desc \"Standalone pact CLI executable using the Ruby Pact impl and Traveling Ruby\"" >&3
         echo "  homepage \"$homepage\"" >&3
-        echo "  version \"$version\"" >&3
         echo "  license \"MIT\"" >&3
         echo "  deprecate! date: \"2027-01-01\", because: :reason, replacement_formula: \"pact-foundation/tap/pact\"" >&3
         echo "" >&3

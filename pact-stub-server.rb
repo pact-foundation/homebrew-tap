@@ -1,7 +1,6 @@
 class PactStubServer < Formula
   desc "Standalone Pact Stub Server executable"
   homepage "https://github.com/pact-foundation/pact-stub-server"
-  version "0.7.1"
   license "MIT"
 
   on_macos do

@@ -29,7 +29,6 @@ write_homebrew_formulae() {
         echo "class $FORMULA_NAME < Formula" >&3
         echo "  desc \"$DESCRIPTION\"" >&3
         echo "  homepage \"$homepage\"" >&3
-        echo "  version \"$version\"" >&3
         echo "  license \"MIT\"" >&3
         echo "" >&3
         echo "  on_macos do" >&3
