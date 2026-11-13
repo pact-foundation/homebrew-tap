@@ -1,28 +1,28 @@
 class PactVerifier < Formula
   desc "Standalone Pact Verifier CLI executable using the Rust Pact impl"
   homepage "https://github.com/pact-foundation/pact-reference"
-  version "1.3.3"
+  version "1.5.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.3/pact-verifier-macos-aarch64.gz"
-      sha256 "36de5001fd36ac3dbf5cb6d1b298b0c2d71c7afdaa721fdb54f38abe6bf517c9"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-macos-aarch64.gz"
+      sha256 "e663f9c97cdef2e9aab4c78faec9f6781f058d549693a9ecaced63cd70122edd"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.3/pact-verifier-macos-x86_64.gz"
-      sha256 "ef05423ae171b5440807b18c8c9a9cf936a4ca2fad8733898094ba6f9a8a9a3a"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-macos-x86_64.gz"
+      sha256 "63f86d7f55114e9368b4f3e52fcb760609e8fe3d1824ec5289358258762beb41"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.3/pact-verifier-linux-aarch64.gz"
-      sha256 "cf1c3af966e3e70633c167abcc2d5c6db0dec9dd81f3ec896841f5d962cb4b40"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-linux-aarch64.gz"
+      sha256 "c39e46866951daa1f6e44853b98542803c5c05dc2d95ade8a10ff7e1ffb2639e"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.3.3/pact-verifier-linux-x86_64.gz"
-      sha256 "411903f850d977b21a64d67c177900d812852ef486c4910c39854f281ab1c438"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-linux-x86_64.gz"
+      sha256 "a0e506dada568004ab523fcecd3491d151ec329e01aafd2d0e19d9e54b7c1a5e"
     end
   end
 
