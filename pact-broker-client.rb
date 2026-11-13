@@ -16,25 +16,25 @@ class PactBrokerClient < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.8/pact-broker-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "01f3a908e0b5c5fd1dda5a062fdc023810f7a982f2101ef31d316f266b1d986e"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.9.0/pact-broker-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "bfb24b0f79d61866f77aefc2ef6a5be588b8e469605808c477785d76db9d8e87"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.8/pact-broker-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "a571c9264e57262163b767d3f05f977d0457bc8fdeb99f07aec4b83c9f10aaf0"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.9.0/pact-broker-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "bfbf739ef23e0696538b4bae46f78b4e9ef8bf6cd1518e940cca6dbb68d0218b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.8/pact-broker-cli-x86_64-unknown-linux-musl.tar.xz"
-      sha256 "c12745595ab437ebd80bfa43d66da656536162e64a6409277a84d40ecd034e2c"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.9.0/pact-broker-cli-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "eb888b9582c3f9a4136c7a74bce24cede923ff535d67d0c785346126370b6cb2"
     end
 
     on_arm do
-      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.8.8/pact-broker-cli-aarch64-unknown-linux-musl.tar.xz"
-      sha256 "d1da079f6c4583cc4af84dbea6406e5d0a3f0e3ae603b850c90592090e55d315"
+      url "https://github.com/pact-foundation/pact-broker-cli/releases/download/v0.9.0/pact-broker-cli-aarch64-unknown-linux-musl.tar.xz"
+      sha256 "f62f9696e94568c6ab315c376c40fa5b445eb9aec1fd1a82e9f418957c2427c8"
     end
   end
 
