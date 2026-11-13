@@ -45,10 +45,15 @@ jobs:
 
       - name: Set script to run based on type of dispatch
         id: set-script
+        env:
+          TYPE: ${{ github.event.client_payload.type || github.event.inputs.type }}
+          VERSION: ${{ github.event.client_payload.version || github.event.inputs.version }}
         run: |
-          TYPE="${{ github.event.client_payload.type || github.event.inputs.type }}"
-          VERSION="${{ github.event.client_payload.version || github.event.inputs.version }}"
-          
+          if [[ ! "$VERSION" =~ ^[A-Za-z0-9._-]+$ ]]; then
+            echo "::error::Invalid version '$VERSION'"
+            exit 1
+          fi
+
           case "$TYPE" in
             pact-cli-released)
               echo "SCRIPT=scripts/update_tap_version_pact_cli.sh" >> $GITHUB_ENV
@@ -65,6 +70,9 @@ jobs:
             pact-plugin-cli-released)
               echo "SCRIPT=scripts/update_tap_version_plugin_cli.sh" >> $GITHUB_ENV
               ;;
+            pact-mock-cli-released)
+              echo "SCRIPT=scripts/update_tap_version_mock_server_cli.sh" >> $GITHUB_ENV
+              ;;
             pact-standalone-released)
               echo "SCRIPT=scripts/update_legacy_tap_version.sh" >> $GITHUB_ENV
               ;;
@@ -77,7 +85,7 @@ jobs:
 
       - name: Run update script
         run: |
-          ./$SCRIPT $VERSION
+          ./$SCRIPT "$VERSION"
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           CREATE_PR: true
