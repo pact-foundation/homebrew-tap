@@ -39,7 +39,7 @@ jobs:
           brew tap pact-foundation/tap
           cd $(brew --prefix)/Homebrew/Library/Taps/pact-foundation/homebrew-tap/
           git checkout ${{ github.event.pull_request.head.sha || github.sha }}
-          brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
+          brew install --verbose pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
 
       - name: Install tap
         if: matrix.os == 'macos-15'
@@ -48,11 +48,11 @@ jobs:
           brew tap pact-foundation/tap
           cd $(brew --prefix)/Library/Taps/pact-foundation/homebrew-tap/
           git checkout ${{ github.event.pull_request.head.sha || github.sha }}
-          brew install --verbose --debug pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
+          brew install --verbose pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-broker-client pact-legacy
 
       - name: Brew test tap
         run: |
-          brew test pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-legacy pact-broker-client --verbose --debug
+          brew test pact pact-stub-server pact-plugin pact-mock-server pact-verifier pact-legacy pact-broker-client --verbose
 
       - name: Audit tap
         run: |

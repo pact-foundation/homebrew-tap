@@ -26,7 +26,8 @@ class PactStubServer < Formula
   end
 
   def install
-    bin.install Dir["*"]
+    # .gz release assets may not store the original filename, so install under a fixed name
+    bin.install Dir["*"].first => "pact-stub-server"
     puts "# Run 'pact-stub-server --help'"
   end
 
