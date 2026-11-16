@@ -1,28 +1,28 @@
 class PactPlugin < Formula
   desc "Standalone Pact Plugin CLI executable"
   homepage "https://github.com/pact-foundation/pact-plugins"
-  version "0.2.0"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.2.0/pact-plugin-macos-aarch64.gz"
-      sha256 "7045569e372b83d375011e4479fe7177b06d934eae318d661df1362244709501"
+      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.3.1/pact-plugin-macos-aarch64.gz"
+      sha256 "a82a0de868e2f1bba79124443280f1d36bb98210ee77f1e6517f3384fe4ccdf6"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.2.0/pact-plugin-macos-x86_64.gz"
-      sha256 "6aa28d92ac5f557ac0faea4790bb5079f5cb9e7ad750618cb58008750958b141"
+      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.3.1/pact-plugin-macos-x86_64.gz"
+      sha256 "eaa230a3746e962cd2b04b3cc0a0069b64d96355dc4776a8197dc52a42f32637"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.2.0/pact-plugin-linux-aarch64.gz"
-      sha256 "b0b78702ccf8c054e7675d0d88da0281f66782890c3829b650bcebe2159b76cf"
+      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.3.1/pact-plugin-linux-aarch64.gz"
+      sha256 "d14bf918fedf8d03ecafb398e9a00575c35c4b1b22511266d9a53c42a513eb3a"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.2.0/pact-plugin-linux-x86_64.gz"
-      sha256 "98dceeb3efd0a5390fdfb7525225098efac8a2591032ca8401181fe799c51886"
+      url "https://github.com/pact-foundation/pact-plugins/releases/download/pact-plugin-cli-v0.3.1/pact-plugin-linux-x86_64.gz"
+      sha256 "1583b3778cdcc4ea239a6ae342e007397f4334f59f4834bf1af7d07a0a6fc17a"
     end
   end
 
