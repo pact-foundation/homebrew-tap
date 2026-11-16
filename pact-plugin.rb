@@ -27,7 +27,8 @@ class PactPlugin < Formula
   end
 
   def install
-    bin.install Dir["*"]
+    # .gz release assets may not store the original filename, so install under a fixed name
+    bin.install Dir["*"].first => "pact-plugin"
     puts "# Run 'pact-plugin --help'"
   end
 

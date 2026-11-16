@@ -66,7 +66,8 @@ write_homebrew_formulae() {
         echo "" >&3
         
         echo "  def install" >&3
-        echo "    bin.install Dir[\"*\"]" >&3
+        echo "    # .gz release assets may not store the original filename, so install under a fixed name" >&3
+        echo "    bin.install Dir[\"*\"].first => \"pact-mock-server\"" >&3
         echo "  end" >&3
         echo "" >&3
         
