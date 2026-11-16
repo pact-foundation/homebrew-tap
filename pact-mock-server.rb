@@ -1,28 +1,28 @@
 class PactMockServer < Formula
   desc "Standalone Pact Mock Server CLI executable using the Rust Pact impl"
   homepage "https://github.com/pact-foundation/pact-core-mock-server"
-  version "2.0.0"
+  version "2.0.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.0/pact-mock-server-macos-aarch64.gz"
-      sha256 "e13f06d76dea1982d4ebb24d1d1a3064a95c170c89fb56fb1cc07e47f92fa963"
+      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.2/pact-mock-server-macos-aarch64.gz"
+      sha256 "fb6b22207dea47870273e4c6e80586fda3417e43e711ddc0d78e9ef92426f01e"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.0/pact-mock-server-macos-x86_64.gz"
-      sha256 "a4e94ed668f9df5191d333081e6c8fa3dfda48e513993f79dc23819345817805"
+      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.2/pact-mock-server-macos-x86_64.gz"
+      sha256 "b15c325519ff4d461ec5ea38ef8507ef2751c04a3baf2fe5bfc24bd4e123bc22"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.0/pact-mock-server-linux-aarch64.gz"
-      sha256 "9981ca76f1cf6e6d210d7a6a5a36cc3eeef736c9a7f9cbc997d6a85edb377574"
+      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.2/pact-mock-server-linux-aarch64.gz"
+      sha256 "dde8f0035da716a03309b8aa9433799fd0baa7847524340ba8bc8987ef853e00"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.0/pact-mock-server-linux-x86_64.gz"
-      sha256 "47a5c45cf2b0a5adb1b1ee4fd746d7390351bb6a0aa4bf26941c7d35570cdff5"
+      url "https://github.com/pact-foundation/pact-core-mock-server/releases/download/pact_mock_server_cli-v2.0.2/pact-mock-server-linux-x86_64.gz"
+      sha256 "232f87f8a0bd66b650342228768dd2bd94863465ec14bc27c4e7e2f7a0416ba4"
     end
   end
 
