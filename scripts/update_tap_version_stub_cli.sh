@@ -2,7 +2,7 @@
 set -e
 
 homepage="https://github.com/pact-foundation/pact-stub-server"
-version=$1
+version=${1#v}
 DESCRIPTION="Standalone Pact Stub Server executable"
 TOOL_NAME=pact-stub-server
 TOOL_NAME_PASCAL=PactStubServer

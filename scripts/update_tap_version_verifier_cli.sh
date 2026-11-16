@@ -2,7 +2,7 @@
 set -e
 
 homepage="https://github.com/pact-foundation/pact-reference"
-version=$1
+version=${1#v}
 DESCRIPTION="Standalone Pact Verifier CLI executable using the Rust Pact impl"
 TOOL_NAME=pact_verifier_cli
 TOOL_NAME_PASCAL=PactVerifier

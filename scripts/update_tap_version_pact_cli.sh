@@ -2,7 +2,7 @@
 set -e
 
 homepage="https://github.com/pact-foundation/pact-cli"
-version=$1
+version=${1#v}
 FORMULAE_FILE="pact.rb"
 APP_NAME="pact"
     filename_macos_arm=v$version/$APP_NAME-aarch64-apple-darwin.tar.xz

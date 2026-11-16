@@ -2,7 +2,7 @@
 set -e
 
 homepage="https://github.com/pact-foundation/pact-plugins"
-version=$1
+version=${1#v}
 DESCRIPTION="Standalone Pact Plugin CLI executable"
 TOOL_NAME=pact-plugin-cli
 TOOL_NAME_PASCAL=PactPlugin

@@ -5,7 +5,7 @@ set -e
 ## RE-ENABLE WHEN WE GET MacOS ARM64 BUILDS - 163
 ## REMOVE THIS CONDITION WHEN WE GET MacOS ARM64 BUILDS - 111
 homepage="https://github.com/pact-foundation/pact-core-mock-server"
-version=$1
+version=${1#v}
 DESCRIPTION="Standalone Pact Mock Server CLI executable using the Rust Pact impl"
 TOOL_NAME=pact_mock_server_cli
 APP_NAME=pact-mock-server
@@ -287,6 +287,7 @@ done
 
         gh pr create --title "chore(release): Update $APP_NAME version to v${version}" --fill
         echo "🎉 Done!"
+    fi
 
 
     exit 0
