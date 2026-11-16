@@ -2,7 +2,7 @@
 set -e
 
 homepage="https://github.com/pact-foundation/pact-standalone"
-version=$1
+version=${1#v}
 FORMULAE_FILE="pact-legacy.rb"
 
 write_homebrew_formulae() {
