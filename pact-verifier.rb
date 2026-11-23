@@ -1,28 +1,28 @@
 class PactVerifier < Formula
   desc "Standalone Pact Verifier CLI executable using the Rust Pact impl"
   homepage "https://github.com/pact-foundation/pact-reference"
-  version "1.5.0"
+  version "1.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-macos-aarch64.gz"
-      sha256 "e663f9c97cdef2e9aab4c78faec9f6781f058d549693a9ecaced63cd70122edd"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.1/pact-verifier-macos-aarch64.gz"
+      sha256 "40fdad8d7c9bd20a10257905f14a9c7aea26916fcb085d0325de9d04525b70bb"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-macos-x86_64.gz"
-      sha256 "63f86d7f55114e9368b4f3e52fcb760609e8fe3d1824ec5289358258762beb41"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.1/pact-verifier-macos-x86_64.gz"
+      sha256 "a5957824ce5558c305ff2599782f1793c73bfe203f5957565b363726a186190f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-linux-aarch64.gz"
-      sha256 "c39e46866951daa1f6e44853b98542803c5c05dc2d95ade8a10ff7e1ffb2639e"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.1/pact-verifier-linux-aarch64.gz"
+      sha256 "79ffd62ac38c7122ff69249a34aa0bb224f98e5793550ba9c257559609e83be3"
     end
     on_intel do
-      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.0/pact-verifier-linux-x86_64.gz"
-      sha256 "a0e506dada568004ab523fcecd3491d151ec329e01aafd2d0e19d9e54b7c1a5e"
+      url "https://github.com/pact-foundation/pact-reference/releases/download/pact_verifier_cli-v1.5.1/pact-verifier-linux-x86_64.gz"
+      sha256 "42d36282ffd477ab4770e29335747dead1eac3fab2bc850f7b8b94efa1d2fa67"
     end
   end
 
